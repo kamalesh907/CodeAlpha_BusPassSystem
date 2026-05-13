@@ -1,17 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Bus Pass System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);
+            padding:30px;
+        }
+
+        .container{
+            width:100%;
+            max-width:1000px;
+            background:white;
+            border-radius:30px;
+            overflow:hidden;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            box-shadow:0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .left{
+            background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);
+            color:white;
+            padding:50px;
+        }
+
+        .logo{
+            font-size:60px;
+            margin-bottom:20px;
+        }
+
+        .left h1{
+            font-size:42px;
+            margin-bottom:15px;
+            line-height:1.2;
+        }
+
+        .left p{
+            font-size:18px;
+            opacity:0.9;
+        }
+
+        .right{
+            padding:50px 40px;
+            background:#ffffff;
+        }
+
+        .right h2{
+            text-align:center;
+            margin-bottom:35px;
+            color:#333;
+            font-size:32px;
+        }
+
+        .input-box{
+            margin-bottom:22px;
+        }
+
+        .input-box label{
+            display:block;
+            margin-bottom:8px;
+            font-size:15px;
+            color:#555;
+            font-weight:600;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:15px;
+            border:1px solid #ddd;
+            border-radius:14px;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        .input-box input:focus{
+            border-color:#a18cd1;
+            box-shadow:0 0 8px rgba(161,140,209,0.3);
+        }
+
+        .row{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        button{
+            width:100%;
+            padding:16px;
+            border:none;
+            border-radius:14px;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+            margin-top:10px;
+        }
+
+        button:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 20px rgba(118,75,162,0.3);
+        }
+
+        .pass-box{
+            margin-top:35px;
+            background:#f8f9ff;
+            padding:25px;
+            border-radius:20px;
+            border:1px solid #eee;
+            display:none;
+        }
+
+        .pass-box h3{
+            text-align:center;
+            color:#764ba2;
+            margin-bottom:20px;
+            font-size:26px;
+        }
+
+        .detail{
+            display:flex;
+            justify-content:space-between;
+            padding:14px 0;
+            border-bottom:1px solid #ddd;
+        }
+
+        .detail span{
+            color:#777;
+            font-weight:500;
+        }
+
+        .detail strong{
+            color:#222;
+        }
+
+        @media(max-width:850px){
+
+            .container{
+                grid-template-columns:1fr;
+            }
+
+            .left{
+                text-align:center;
+            }
+
+        }
+
+    </style>
+</head>
+
 <body>
 
 <div class="container">
 
-    <!-- LEFT SIDE -->
     <div class="left">
 
         <div class="logo">🚌</div>
 
         <h1>Cloud Bus Pass System</h1>
 
-        <p class="subtitle">
+        <p>
             Fast • Secure • Digital Ticket Booking
         </p>
+
+    </div>
+
+    <div class="right">
+
+        <h2>Book Your Pass</h2>
 
         <div class="input-box">
             <label>Passenger Name</label>
@@ -41,14 +217,9 @@
             Generate Bus Pass
         </button>
 
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="right">
-
         <div class="pass-box" id="pass-box">
 
-            <h2>🎫 Digital Bus Pass</h2>
+            <h3>🎫 Digital Bus Pass</h3>
 
             <div class="detail">
                 <span>Name</span>
@@ -81,4 +252,33 @@
 
 </div>
 
+<script>
+
+function generatePass(){
+
+    let name=document.getElementById("name").value;
+    let from=document.getElementById("from").value;
+    let to=document.getElementById("to").value;
+    let date=document.getElementById("date").value;
+
+    if(name==="" || from==="" || to==="" || date===""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    document.getElementById("pname").innerText=name;
+    document.getElementById("pfrom").innerText=from;
+    document.getElementById("pto").innerText=to;
+    document.getElementById("pdate").innerText=date;
+
+    let passID="BUS"+Math.floor(Math.random()*100000);
+
+    document.getElementById("pid").innerText=passID;
+
+    document.getElementById("pass-box").style.display="block";
+}
+
+</script>
+
 </body>
+</html>
