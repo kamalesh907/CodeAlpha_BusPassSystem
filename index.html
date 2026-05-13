@@ -3,26 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot</title>
+    <title>Cloud Bus Pass System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="chat-container">
+<div class="container">
 
-    <div class="chat-header">
-        AI Customer Support Bot
+    <h1>Cloud Bus Pass System</h1>
+
+    <div class="form-box">
+
+        <input type="text" id="name" placeholder="Enter Passenger Name">
+
+        <input type="text" id="from" placeholder="From">
+
+        <input type="text" id="to" placeholder="To">
+
+        <input type="date" id="date">
+
+        <button onclick="generatePass()">Generate Pass</button>
+
     </div>
 
-    <div class="chat-box" id="chat-box">
-        <div class="bot-message">
-            Hello! How can I help you today?
-        </div>
-    </div>
+    <div class="pass-box" id="pass-box">
 
-    <div class="input-area">
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
+        <h2>Bus Pass</h2>
+
+        <p><strong>Name:</strong> <span id="pname"></span></p>
+
+        <p><strong>From:</strong> <span id="pfrom"></span></p>
+
+        <p><strong>To:</strong> <span id="pto"></span></p>
+
+        <p><strong>Date:</strong> <span id="pdate"></span></p>
+
+        <p><strong>Pass ID:</strong> <span id="pid"></span></p>
+
     </div>
 
 </div>
