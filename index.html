@@ -10,25 +10,37 @@
 
 <div class="container">
 
-    <h1>Cloud Bus Pass System</h1>
+    <h1>🚌 Cloud Bus Pass System</h1>
 
     <div class="form-box">
 
-        <input type="text" id="name" placeholder="Enter Passenger Name">
+        <div class="input-group">
+            <label>Passenger Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
 
-        <input type="text" id="from" placeholder="From">
+        <div class="input-group">
+            <label>From</label>
+            <input type="text" id="from" placeholder="Starting location">
+        </div>
 
-        <input type="text" id="to" placeholder="To">
+        <div class="input-group">
+            <label>To</label>
+            <input type="text" id="to" placeholder="Destination">
+        </div>
 
-        <input type="date" id="date">
+        <div class="input-group">
+            <label>Travel Date</label>
+            <input type="date" id="date">
+        </div>
 
-        <button onclick="generatePass()">Generate Pass</button>
+        <button onclick="generatePass()">Generate Bus Pass</button>
 
     </div>
 
     <div class="pass-box" id="pass-box">
 
-        <h2>Bus Pass</h2>
+        <h2>🎫 Digital Bus Pass</h2>
 
         <p><strong>Name:</strong> <span id="pname"></span></p>
 
